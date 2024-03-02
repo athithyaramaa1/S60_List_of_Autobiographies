@@ -1,0 +1,11 @@
+{
+  "name": "s60_list_of_autobiographies",
+  "version": "1.0.0",
+  "description": "list of autobiographies for ASAP proj",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
