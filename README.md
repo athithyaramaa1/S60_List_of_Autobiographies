@@ -8,6 +8,7 @@
 
 🔗 **Easy Access:** Our project ensures that the links to these autobiographies are easily accessible. Search for your favorite books effortlessly and explore based on your interests.
 
+
 📖 **Types of Autobiographies:**
 - **Spiritual Sagas:** Uncover the spiritual journeys of remarkable individuals.
 - **Intellectual Insights:** Delve into the intellectual minds of influential personalities.
@@ -16,4 +17,5 @@
 ✨ Embark on a captivating journey through the different realms of autobiographies. Whether you seek spiritual enlightenment, intellectual stimulation, or a touch of fiction, we've got you covered!
 
 Let the stories unfold, and let the inspiration flow! 🌈📚
+
 
