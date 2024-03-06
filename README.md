@@ -1,6 +1,6 @@
 # LIST_of_AUTOBIOGRAPHIES
 
-1. This project is aimed at creating list of autobiographies of great personalities accros countries.
+1.  This project is aimed at creating list of autobiographies of great personalities accros countries.
 
 
 ## Features of the project:
@@ -11,3 +11,4 @@
 
 - **Types of Autobiographies:** The types of autobiographies would be as follows: Spiritual, Intellectual and Fictonal. 
 
+***
