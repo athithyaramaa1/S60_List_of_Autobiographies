@@ -1,7 +1,5 @@
 # 📚 LIST OF AUTOBIOGRAPHIES
 
-### 🔗 Link to the project ###: https://s60-list-of-autobiographies-athithya.onrender.com/
-
 🌟 Welcome to the inspiring world of autobiographies! Explore the life stories of great personalities from across the globe. This project is dedicated to creating a curated list of autobiographies, offering readers a motivational journey into the lives of extraordinary leaders.
 
 ## Features of the Project:
