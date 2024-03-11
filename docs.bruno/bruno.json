@@ -1,9 +1,0 @@
-{
-    "version": "1",
-    "name": "S60_List_of_Autobiographies",
-    "type": "Collection",
-    "ignore": [
-      "node_modules",
-      ".git"
-    ]
-  }
