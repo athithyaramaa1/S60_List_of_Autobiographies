@@ -1,0 +1,9 @@
+{
+    "version": "1",
+    "name": "S60_PickUp_Lines",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ]
+  }
