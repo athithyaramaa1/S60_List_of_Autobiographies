@@ -23,4 +23,4 @@ const autobiographySchema = mongo.Schema({
 
 
 const Datacenter = mongo.model("database", autobiographySchema);
-module.exports = Datac`enter;
+module.exports = Datacenter;
