@@ -1,8 +1,12 @@
 # 📚 LIST OF AUTOBIOGRAPHIES
 
-### 🔗 Link to the project: https://s60-list-of-autobiographies-athithya.onrender.com/
+### 🔗 Project deployment link: https://s60-list-of-autobiographies-athithya.onrender.com/
+
+### 🌟 Client Frontend link: https://autobiographies-mern.netlify.app/ 🌟
 
 🌟 Welcome to the inspiring world of autobiographies! Explore the life stories of great personalities from across the globe. This project is dedicated to creating a curated list of autobiographies, offering readers a motivational journey into the lives of extraordinary leaders.
+
+![List of Autobiographies](https://assets.gqindia.com/photos/6465b68b24a3886180dce767/master/pass/Best-autobiographies_hp.jpeg)
 
 ## Features of the Project:
 
