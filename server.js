@@ -4,7 +4,9 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const routes = require("./routes");
 const { connectdb, model } = require("./Mongodb");
-
+const cors = require('cors')
+app.use(cors())
+app.use(express.json())
 app.use("/", routes);
 
 function getStatus() {
