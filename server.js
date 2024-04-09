@@ -1,30 +1,29 @@
 const express = require("express");
 const app = express();
-const mongoose = require('mongoose');
-const dotenv = require('dotenv').config();
-const routes = require('./routes')
+const mongoose = require("mongoose");
+const dotenv = require("dotenv").config();
+const routes = require("./routes");
+const { connectdb, model } = require("./Mongodb");
 
-const MONGODB_CONNECTION_STRING = process.env.MONGODB_CONNECTION_STRING
+app.use("/", routes);
 
-const ConnectDB = async () => {
-  try {
-    await mongoose.connect(MONGODB_CONNECTION_STRING);
-    console.log('connected to DB');
-  } catch (err) {
-    console.log('error on connecting', err.message);
-  }
-};
+function getStatus() {
+  return mongoose.connection.readyState === 1;
+}
+
 app.get("/", (req, res) => {
-  res.send("Go to the ping route!");
+  const checkconnection = getStatus();
+  let condition = checkconnection
+    ? "Connected Correctly"
+    : "You failed to connect";
+  res.send("Go to the ping route! " + condition);
 });
 
 app.get("/ping", (req, res) => {
   res.send("Hello List of Autobiographies!!");
 });
 
-app.use('/', routes)
-
-app.listen(3000, async () => {
+app.listen(3000, () => {
   console.log("We're in port 3000");
-  await ConnectDB()
-});
+  connectdb();
+}); 

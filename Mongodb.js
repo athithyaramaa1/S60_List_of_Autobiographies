@@ -1,9 +1,12 @@
 const mongo = require("mongoose");
 const autobiographyData = require("./AutobiographyData");
+const dotenv = require('dotenv')
+dotenv.config()
 
-mongo
+function server(){
+  mongo
   .connect(
-    "mongodb+srv://athithyaramaa:athithya1@asapmongodb.qnsnqcs.mongodb.net/?retryWrites=true&w=majority&appName=ASAPMongoDB"
+    process.env.MONGODB_CONNECTION_STRING
   )
   .then(() => {
     console.log("Connected");
@@ -11,6 +14,8 @@ mongo
   .catch(() => {
     console.log("Error");
   });
+}
+
 
 const autobiographySchema = mongo.Schema({
   bookName: String,
@@ -23,4 +28,4 @@ const autobiographySchema = mongo.Schema({
 
 
 const Datacenter = mongo.model("database", autobiographySchema);
-module.exports = Datacenter;
+module.exports = {model:Datacenter, connectdb: server};
