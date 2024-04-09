@@ -1,8 +1,18 @@
 const express = require("express");
 const app = express();
+const { model } = require("./Mongodb");
+
+app.use(express.json());
 
 app.get("/getdata", (request, response) => {
-  response.send("Get request is done successfully");
+  model
+    .find({})
+    .then((arr) => {
+      response.json({ arr }); 
+    })
+    .catch((err) => {
+      response.status(500).json({ error: err }); 
+    });
 });
 
 app.put("/putdata/:id", (request, response) => {
