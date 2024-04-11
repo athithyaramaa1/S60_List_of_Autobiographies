@@ -32,7 +32,7 @@ export default function MultiActionAreaCard() {
             borderRadius: 10,
             border: '2px solid lightyellow',
             boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-            marginBottom: 10, // Add margin between cards if needed
+            marginBottom: 10, 
           }}
         >
           <CardActionArea>
@@ -40,7 +40,7 @@ export default function MultiActionAreaCard() {
               component="img"
               height="140"
               image={autobiography.image}
-              alt={autobiography.name} // Assuming name is a property in your data
+              alt={autobiography.name} 
               sx={{ objectFit: 'cover', borderRadius: '10px 10px 0 0', height: '', placeItems: "center" }}
             />
             <CardContent>
