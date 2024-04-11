@@ -20,7 +20,7 @@ app.put("/putdata/:id", (request, response) => {
 });
 
 app.post("/postdata", (request, response) => {
-  response.status(201).send("Post request is done successfully");
+  model.create(request.body).then(data=>response.json(data)).catch(err=>response.json(error))
 });
 
 app.delete("/deletedata/:id", (request, response) => {

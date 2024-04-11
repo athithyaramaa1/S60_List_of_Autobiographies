@@ -1,16 +1,16 @@
 import "./App.css";
-import MultiActionAreaCard from "./assets/Card";
-import dummyData from "./assets/dummyData";
+import AddData from "./assets/AddData";
+import HomePage from "./assets/HomePage";
+import {  Routes, Route } from "react-router-dom";
 function App() {
-
   return (
     <>
-    <h1 className="heading">ASAP Project - Autobiographies</h1>
-    <img src="https://assets.gqindia.com/photos/6465b68b24a3886180dce767/master/pass/Best-autobiographies_hp.jpeg" alt="" className="generalimg"/>
-    <p className="intro">Dive into the fascinating stories of great leaders and discover how they navigated the twists and turns of life. Get ready for a motivational boost!</p>
-      <div className="card">
-        <MultiActionAreaCard/>
-      </div>
+      <>
+        <Routes>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/add" element={<AddData />}></Route>
+        </Routes>
+      </>
     </>
   );
 }
