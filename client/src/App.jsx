@@ -11,6 +11,7 @@ function App() {
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/add" element={<AddData />}></Route>
           <Route path="/update/:index" element={<UpdateData />}></Route>
+          <Route path="/update/:index" element={<UpdateData />}></Route>
         </Routes>
       </>
     </>
