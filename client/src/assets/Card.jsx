@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -33,7 +33,7 @@ const DeleteConfirmationModal = ({ open, onClose, onDelete }) => {
         <Typography variant="h6" id="delete-confirmation-modal-title" gutterBottom sx={{ marginBottom: 2, color:'black'}}> 
           Are you sure you want to delete the book?
         </Typography>
-        <Typography id="delete-confirmation-modal-description" sx={{ marginBottom: 2, color:'black'}}>
+        <Typography id="delete-confirmation-modal-description" sx={{ marginBottom: 2, color:'red'}}>
           The changes cannot be changed.
         </Typography>
         <Stack direction="row" spacing={2} sx={{ justifyContent: 'center' }}>

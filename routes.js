@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
 const { model } = require("./Mongodb");
+const joi = require('joi')
 const cors = require("cors");
 app.use(cors());
 app.use(express.json());
+
 
 app.get("/getdata", (request, response) => {
   model
@@ -45,7 +47,14 @@ app.put("/putdata/:id", (request, response) => {
     .catch((err) => response.status(500).json({ error: err }));
 });
 
+
+
 app.post("/postdata", (request, response) => {
+  const {error, value} = joi.validate(request.body)
+  if(error){
+    console.log(error.message)
+    response.json({error: "Error!!! Validation failed. Data cannot be posted"  })
+  }
   model
     .create(request.body)
     .then((data) => response.json(data))
