@@ -18,7 +18,7 @@ import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
 import BadgeRoundedIcon from "@mui/icons-material/BadgeRounded";
 import GoogleIcon from "./GoogleIcon";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
+import { useNavigate } from "react-router-dom"; 
 
 interface FormElements extends HTMLFormControlsCollection {
   name: HTMLInputElement;

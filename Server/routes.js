@@ -45,7 +45,7 @@ app.put("/putdata/:id", async (request, response) => {
         rating: request.body.rating,
       },
       { new: true }
-    ); // To return the updated document
+    );
     response.json(updatedData);
   } catch (error) {
     response.status(500).json({ error: error.message });

@@ -107,3 +107,20 @@
 .button:hover:before {
   width: 100%;
 }
+
+.top-right {
+  position: absolute;
+  top: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+  border: 2px solid yellow;
+}
+
+.logout-link {
+  color: #f1eded;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.logout-link:hover {
+  color: #d00909;
+}
