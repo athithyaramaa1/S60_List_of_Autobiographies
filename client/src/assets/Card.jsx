@@ -132,7 +132,7 @@ export default function MultiActionAreaCard() {
             </Button>
           </CardActions>
           <Stack direction="row" spacing={2} sx={{ justifyContent: 'center', marginTop: 'auto' }}>
-            <Link to={`/update/${autobiography._id}`}>
+            <Link to={`/home/update/${autobiography._id}`}>
               <Button variant="contained" startIcon={<UpgradeIcon />}>
                 Update Book
               </Button>

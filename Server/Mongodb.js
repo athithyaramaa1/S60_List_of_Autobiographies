@@ -1,21 +1,17 @@
 const mongo = require("mongoose");
-const autobiographyData = require("./AutobiographyData");
-const dotenv = require('dotenv')
-dotenv.config()
+const dotenv = require("dotenv");
+dotenv.config();
 
-function server(){
+function server() {
   mongo
-  .connect(
-    process.env.MONGODB_CONNECTION_STRING
-  )
-  .then(() => {
-    console.log("Connected");
-  })
-  .catch(() => {
-    console.log("Error");
-  });
-}
-
+    .connect(process.env.MONGODB_CONNECTION_STRING)
+    .then(() => {
+      console.log("Connected");
+    })
+    .catch(() => {
+      console.log("Error");
+    });
+} 
 
 const autobiographySchema = mongo.Schema({
   bookName: String,
@@ -24,8 +20,20 @@ const autobiographySchema = mongo.Schema({
   image: String,
   description: String,
   rating: String,
+//   user: {
+//     type: mongo.Types.ObjectId,
+//     required: true,
+//     ref: "userModel"
+// }
 });
 
+const userSchema = mongo.Schema({
+  name: String,
+  email: String,
+  password: String,
+  confirmPassword: String,
+});
 
 const Datacenter = mongo.model("database", autobiographySchema);
-module.exports = {model:Datacenter, connectdb: server};
+const userModel = mongo.model("User Information", userSchema);
+module.exports = { model: Datacenter, connectdb: server, usermodel: userModel };
