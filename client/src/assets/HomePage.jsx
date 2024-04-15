@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import MultiActionAreaCard from "../assets/Card";
 
 function HomePage() {
-  const navigate = useNavigate(); // Corrected useNavigate hook
+  const navigate = useNavigate(); 
   const Logout = () => {
     document.cookie = "gmail=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     document.cookie = "password=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
