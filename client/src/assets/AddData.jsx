@@ -67,7 +67,7 @@ export default function AddData() {
           description,
           rating,
         })
-        .then(() => navigate("/"))
+        .then(() => navigate("/home"))
         .catch((err) => console.log(err));
     } else {
       setErrors(errors);
@@ -76,7 +76,7 @@ export default function AddData() {
   };
 
   const handleGoBack = () => {
-    navigate("/");
+    navigate("/home");
   };
 
   return (

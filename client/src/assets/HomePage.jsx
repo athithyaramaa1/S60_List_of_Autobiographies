@@ -16,7 +16,7 @@ function HomePage() {
         boost!
       </p>
       <br />
-      <Link to="/add" className="button">
+      <Link to="/home/add" className="button">
         Add Autobiography
       </Link>
       <div className="card">

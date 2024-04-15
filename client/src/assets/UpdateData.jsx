@@ -41,7 +41,7 @@ export default function UpdateData() {
 
   const navigate = useNavigate();
   const handleGoBack = () => {
-    navigate("/");
+    navigate("/home");
   };
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export default function UpdateData() {
         rating,
       })
       .then(() => {
-        navigate("/");
+        navigate("/home");
       })
       .catch((err) => console.log("Err", err));
   };
