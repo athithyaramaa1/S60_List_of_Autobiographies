@@ -4,6 +4,7 @@ import MultiActionAreaCard from "../assets/Card";
 
 function HomePage() {
   const navigate = useNavigate(); 
+  //Added logout functionality along with cookies clearance upon clicking it
   const Logout = () => {
     document.cookie = "gmail=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     document.cookie = "password=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
