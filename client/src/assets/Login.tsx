@@ -77,7 +77,7 @@ export default function Login() {
         if (res.status === 200) {
           navigate("/home");
           document.cookie = `email=${email}; expires=Sun, 31 Dec 2034 00:00:00 GMT`;
-          document.cookie = `password=${password}; expires=Sun, 31 Dec 2034 00:00:00 GMT`;
+          document.cookie = `token=${res.data.token}; expires=Sun, 31 Dec 2034 00:00:00 GMT`;
         } else {
           setError(`Invalid email id or password!`);
         }
