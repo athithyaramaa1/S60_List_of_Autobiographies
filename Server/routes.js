@@ -2,22 +2,24 @@ const express = require("express");
 const app = express();
 const { model, usermodel } = require("./Mongodb");
 const joiSchema = require("./Schema");
+const jwt = require("jsonwebtoken");
+const cookie = require("cookie-parser");
 const joi = require("joi");
 const cors = require("cors");
+const dotenv = require("dotenv").config();
 const bodyparser = require("body-parser");
 app.use(cors());
 app.use(express.json());
 app.use(bodyparser.json());
+app.use(cookie());
 
-app.get("/getdata", (request, response) => {
-  model
-    .find({})
-    .then((arr) => {
-      response.json({ arr });
-    })
-    .catch((err) => {
-      response.status(500).json({ error: err });
-    });
+app.get("/getdata", async (request, response) => {
+  try {
+    const arr = await model.find({});
+    response.json({ arr });
+  } catch (err) {
+    response.status(500).json({ error: err.message });
+  }
 });
 
 app.get("/getid/:id", async (request, response) => {
@@ -79,7 +81,7 @@ app.delete("/deletedata/:id", (request, response) => {
     .catch((error) => response.status(500).json({ error: error }));
 });
 
-app.post("/signup", (request, response) => {
+app.post("/signup", async (request, response) => {
   usermodel
     .create(request.body)
     .then((users) => response.json(users))
@@ -91,14 +93,37 @@ app.post("/login", async (request, response) => {
   console.log(email, password, "temp");
 
   try {
-    const user = await usermodel.findOne({ email });
+    const user = await usermodel.findOne({ email }).then((users) => {
+      console.log(users);
+      console.log(password);
+
+      if (users) {
+        if (users.password === password) {
+          const token = jwt.sign(
+            { name: users.name, email: users.email },
+            process.env.PASSWORD
+          );
+
+          response.cookie("token", token);
+          response.json({ message: "User Login", token: token });
+        } else {
+          response.json("User details invalid!!!");
+        }
+      } else {
+        response.json("Login denied, Access not permitted");
+      }
+    });
 
     if (!user) {
-      return response.status(401).json({ message: "Invalid email or password" });
+      return response
+        .status(401)
+        .json({ message: "Invalid email or password" });
     }
 
     if (password !== user.password) {
-      return response.status(401).json({ message: "Invalid email or password" });
+      return response
+        .status(401)
+        .json({ message: "Invalid email or password" });
     }
 
     return response.status(200).json({ message: "Login Successful", user });
