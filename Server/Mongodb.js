@@ -11,20 +11,20 @@ function server() {
     .catch(() => {
       console.log("Error");
     });
-} 
+}
 
-const autobiographySchema = mongo.Schema({
+const autobiographySchema = new mongo.Schema({
   bookName: String,
   author: String,
   publicationYear: String,
   image: String,
   description: String,
   rating: String,
-//   user: {
-//     type: mongo.Types.ObjectId,
-//     required: true,
-//     ref: "userModel"
-// }
+  user: {
+    type: mongo.Types.ObjectId,
+    required: true,
+    ref: "User Information",
+  },
 });
 
 const userSchema = mongo.Schema({
