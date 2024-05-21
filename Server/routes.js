@@ -81,6 +81,15 @@ app.delete("/deletedata/:id", (request, response) => {
     .catch((error) => response.status(500).json({ error: error }));
 });
 
+app.get("/users", async (request, response) => {
+  try {
+    const users = await usermodel.find({});
+    response.json(users);
+  } catch (err) {
+    response.status(500).json({ error: err.message });
+  }
+});
+
 app.post("/signup", async (request, response) => {
   usermodel
     .create(request.body)
@@ -93,26 +102,7 @@ app.post("/login", async (request, response) => {
   console.log(email, password, "temp");
 
   try {
-    const user = await usermodel.findOne({ email }).then((users) => {
-      console.log(users);
-      console.log(password);
-
-      if (users) {
-        if (users.password === password) {
-          const token = jwt.sign(
-            { name: users.name, email: users.email },
-            process.env.PASSWORD
-          );
-
-          response.cookie("token", token);
-          response.json({ message: "User Login", token: token });
-        } else {
-          response.json("User details invalid!!!");
-        }
-      } else {
-        response.json("Login denied, Access not permitted");
-      }
-    });
+    const user = await usermodel.findOne({ email });
 
     if (!user) {
       return response
@@ -120,15 +110,24 @@ app.post("/login", async (request, response) => {
         .json({ message: "Invalid email or password" });
     }
 
-    if (password !== user.password) {
+    if (user.password !== password) {
       return response
         .status(401)
         .json({ message: "Invalid email or password" });
     }
 
-    return response.status(200).json({ message: "Login Successful", user });
+    const token = jwt.sign(
+      { name: user.name, email: user.email },
+      process.env.PASSWORD
+    );
+
+    response.cookie("token", token);
+    return response.json({ message: "User Login", token: token });
   } catch (error) {
-    response.status(500).json({ message: "Internal server error", error });
+    return response
+      .status(500)
+      .json({ message: "Internal server error", error });
   }
 });
+
 module.exports = app;
