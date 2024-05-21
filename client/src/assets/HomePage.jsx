@@ -103,7 +103,7 @@ function HomePage() {
             <MultiActionAreaCard key={autobio._id} autobio={autobio} />
           ))
         ) : (
-          <p>This user has not done any activity</p>
+          <p>This user has not done any activity!!</p>
         )}
       </div>
     </>
